@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('qrcode', function () {
+    return QrCode::size(300)->generate('A basic example of QR code!');
+});
+
+Route::get('qrcode-with-color', function () {
+    return \QrCode::size(500)
+                    ->backgroundColor(0,255,255)
+                    ->generate('A simple example of QR code');
+});
