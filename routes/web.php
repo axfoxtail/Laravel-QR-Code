@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QRCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::get('qrcode-with-color', function () {
                     ->backgroundColor(0,255,255)
                     ->generate('A simple example of QR code');
 });
+
+
+Route::get('simple-qr-code', [QRCodeController::class, 'simpleQr']);
+Route::get('color-qr-code', [QRCodeController::class, 'colorQr']);
+Route::get('image-qr-code', [QRCodeController::class, 'imageQr']);
